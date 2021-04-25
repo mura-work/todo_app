@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,6 +15,12 @@ public class SessionController {
 	@RequestMapping(path = "/doLogin", method = RequestMethod.GET)
 	public String doLoginGet(String userId) {
 		System.out.println("ユーザID" + userId);
+		return "session/login";
+	}
+	
+	@PostMapping(path="/doLogin")
+	public String doLoginPost(String userId) {
+		System.out.println("ユーザID：" + userId);
 		return "session/login";
 	}
 }
