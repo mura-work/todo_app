@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>ログイン（get）</div>
+	<form method="get" action="/doLogin">
+		ユーザID：<input type="number" name="userId">
+		パスワード：<input type="password" name="password">
+		<input type="submit" value="GETによるログイン">
+	</form>
+	
+	<div>ログイン（post）</div>
+	<form method="post" action="/doLogin">
+		ユーザID：<input type="number" name="userId">
+		パスワード：<input type="password" name="password">
+		<input type="submit" value="POSTによるログイン">
+	</form>
+</body>
+</html>
