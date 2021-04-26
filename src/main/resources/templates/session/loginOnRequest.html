@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div>ログイン（post）</div>
-	<form method="post" action="/doLoginUsingForm">
+<div th:text="${param.userId}"></div>
+	<form method="post" action="/doLoginOnRequest">
 		ユーザID：<input type="number" name="userId">
 		パスワード：<input type="password" name="password">
 		<input type="submit" value="ログイン">
