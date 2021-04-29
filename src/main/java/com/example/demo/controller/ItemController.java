@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,9 @@ import com.example.demo.repository.ItemRepository;
 public class ItemController {
 	@Autowired
 	ItemRepository repository;
+	
+	@Autowired
+	HttpSession session;
 	
 	
 	@RequestMapping("/items/findAll")
@@ -49,6 +53,12 @@ public class ItemController {
 	public String findByNameLike(@PathVariable String name, Model model) {
 		model.addAttribute("items", repository.findByNameLike("%" + name + "%"));
 		return "items/item_list";
+	}
+	
+	@RequestMapping("/items/findAllAndSetDropdown")
+	public String ItemListSetDropdown(Model model) {
+		session.setAttribute("items", repository.findAll());
+		return "items/item_list_dropdown";
 	}
 }
 
