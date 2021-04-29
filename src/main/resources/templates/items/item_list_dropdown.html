@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>ドロップダウンリスト</div>
+	<select>
+		<option th:each="item: ${session.items}"
+						th:value="${item.id}"
+						th:text="${item.name}"></option>
+	</select>
+</body>
+</html>
