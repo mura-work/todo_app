@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS items 
+(
+	id INT(3) PRIMARY KEY,
+	name VARCHAR2(100),
+	price INT(5)
+);
