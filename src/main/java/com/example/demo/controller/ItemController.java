@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entity.Item;
+import com.example.demo.form.ItemForm;
 import com.example.demo.repository.ItemRepository;
 
 @Controller
@@ -88,6 +90,17 @@ public class ItemController {
 		item.setId(id);
 		repository.save(item);
 		return "redirect:/items/getOne/" + item.getId();
+	}
+	
+	@GetMapping("/items/delete/input")
+	public String deleteInput() {
+		return "items/delete_input";
+	}
+	
+	@DeleteMapping("/items/delete/complete")
+	public String deleteComplete(ItemForm form) {
+		repository.deleteById(form.getId());
+		return "redirect:/items/findAll";
 	}
 }
 
